@@ -88,18 +88,6 @@ struct EuclideanView: View {
                         }
                         Spacer()
                     }
-                    .task {
-                        let counter = self.temp
-                        var isDone = false
-                        while !isDone && !Task.isCancelled {
-                            withAnimation {
-                                assert(counter == self.temp && !Task.isCancelled)
-                                isDone = self.algorithm!.step()
-                            }
-                            try? await Task.sleep(nanoseconds: 1 * NSEC_PER_SEC)
-                        }
-                    }
-                    .id("\(firstNumber)\(secondNumber)\(temp)")
 
                     if let result = algorithm.result {
                         Section {
@@ -118,6 +106,22 @@ struct EuclideanView: View {
                 }
             }
             .navigationTitle("Euclidean Algorithm")
+            .background {
+                Color.clear
+                    .task {
+                        guard algorithm != nil else { return }
+                        let counter = self.temp
+                        var isDone = false
+                        while !isDone && !Task.isCancelled {
+                            withAnimation {
+                                assert(counter == self.temp && !Task.isCancelled)
+                                isDone = self.algorithm!.step()
+                            }
+                            try? await Task.sleep(nanoseconds: 1 * NSEC_PER_SEC)
+                        }
+                    }
+                    .id("\(firstNumber)\(secondNumber)\(temp)")
+            }
         }
     }
 }
