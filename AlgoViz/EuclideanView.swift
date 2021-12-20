@@ -21,6 +21,8 @@ struct EuclideanView: View {
         GCDAlgorithm.isValid(a: firstNumber, b: secondNumber)
     }
     
+    @State private var resultValues: [(Int, Int)] = []
+    
     var body: some View {
         NavigationView {
             Form {
@@ -42,11 +44,8 @@ struct EuclideanView: View {
                             temp += 1
                             focus = nil
                         }) {
-                            HStack {
-                                Spacer()
-                                Text("Calculate")
-                                Spacer()
-                            }
+                            Text("Calculate")
+                                .frame(maxWidth: .infinity)
                         }
                         .disabled(!isValid)
                         .buttonStyle(.borderless)
@@ -58,11 +57,8 @@ struct EuclideanView: View {
                             temp += 1
                             focus = nil
                         }) {
-                            HStack {
-                                Spacer()
-                                Text("Random")
-                                Spacer()
-                            }
+                            Text("Random")
+                                .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(.borderless)
                     }
@@ -71,23 +67,20 @@ struct EuclideanView: View {
                 }
                 
                 if let algorithm = algorithm {
-                    HStack {
-                        Spacer()
-                        VStack {
-                            Text(algorithm.larger, format: .number)
-                                .transition(.asymmetric(insertion: .move(edge: .top), removal: .move(edge: .bottom)))
-                                .id(algorithm.larger)
+                    DisclosureGroup {
+                        ForEach(resultValues, id: \.0) { values in
+                            DividedNumbersView(left: values.0, right: values.1)
                         }
-                        Spacer()
-                        Divider()
-                        Spacer()
-                        VStack {
-                            Text(algorithm.smaller, format: .number)
-                                .transition(.asymmetric(insertion: .move(edge: .top), removal: .move(edge: .bottom)))
-                                .id(algorithm.smaller)
+                    } label: {
+                        HStack(spacing: 20) {
+                            ZStack {
+                                Image(systemName: "chevron.down")
+                                Image(systemName: "chevron.right")
+                            }.hidden()
+                            DividedNumbersView(left: algorithm.larger, right: algorithm.smaller)
                         }
-                        Spacer()
                     }
+                    
 
                     if let result = algorithm.result {
                         Section {
@@ -121,6 +114,33 @@ struct EuclideanView: View {
                         }
                     }
                     .id("\(firstNumber)\(secondNumber)\(temp)")
+            }
+            .onChange(of: algorithm) { _ in
+                guard let algorithm = algorithm else {
+                    return
+                }
+                if algorithm.result == nil {
+                    resultValues.append((algorithm.larger, algorithm.smaller))
+                }
+                
+            }
+        }
+    }
+}
+
+struct DividedNumbersView: View {
+    var left: Int
+    var right: Int
+    var body: some View {
+        HStack {
+            ZStack {
+                Text(left, format: .number)
+                Color.clear
+            }
+            Divider()
+            ZStack {
+                Color.clear
+                Text(right, format: .number)
             }
         }
     }

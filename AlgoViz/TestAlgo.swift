@@ -32,7 +32,7 @@ func loopGCD(_ a: Int,_ b: Int) -> Int {
     return newB
 }
 
-struct GCDAlgorithm {
+struct GCDAlgorithm: Equatable {
     var smaller: Int
     var larger: Int
     var a: Int
