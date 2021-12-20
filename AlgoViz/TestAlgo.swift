@@ -42,6 +42,8 @@ struct GCDAlgorithm {
     init(_ a: Int, _ b: Int) {
         self.a = a
         self.b = b
+        
+        
         if b > a {
             larger = b
             smaller = a
@@ -63,6 +65,12 @@ struct GCDAlgorithm {
             self.result = smaller
             return true
         }
+    }
+    
+    static func isValid(a: Int, b: Int) -> Bool {
+        if a <= 0 { return false }
+        if b <= 0 { return false }
+        return true
     }
 }
 

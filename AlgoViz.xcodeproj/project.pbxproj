@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F542737C277058020007FEA3 /* TestAlgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F542737B277058020007FEA3 /* TestAlgo.swift */; };
 		F5A8E021277033AC00A79A31 /* AlgoVizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A8E020277033AC00A79A31 /* AlgoVizApp.swift */; };
-		F5A8E023277033AC00A79A31 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A8E022277033AC00A79A31 /* ContentView.swift */; };
+		F5A8E023277033AC00A79A31 /* EuclideanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A8E022277033AC00A79A31 /* EuclideanView.swift */; };
 		F5A8E025277033AD00A79A31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5A8E024277033AD00A79A31 /* Assets.xcassets */; };
 		F5A8E028277033AD00A79A31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5A8E027277033AD00A79A31 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -18,7 +18,7 @@
 		F542737B277058020007FEA3 /* TestAlgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAlgo.swift; sourceTree = "<group>"; };
 		F5A8E01D277033AC00A79A31 /* AlgoViz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlgoViz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A8E020277033AC00A79A31 /* AlgoVizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgoVizApp.swift; sourceTree = "<group>"; };
-		F5A8E022277033AC00A79A31 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F5A8E022277033AC00A79A31 /* EuclideanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuclideanView.swift; sourceTree = "<group>"; };
 		F5A8E024277033AD00A79A31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5A8E027277033AD00A79A31 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,8 +54,8 @@
 			isa = PBXGroup;
 			children = (
 				F5A8E020277033AC00A79A31 /* AlgoVizApp.swift */,
+				F5A8E022277033AC00A79A31 /* EuclideanView.swift */,
 				F542737B277058020007FEA3 /* TestAlgo.swift */,
-				F5A8E022277033AC00A79A31 /* ContentView.swift */,
 				F5A8E024277033AD00A79A31 /* Assets.xcassets */,
 				F5A8E026277033AD00A79A31 /* Preview Content */,
 			);
@@ -141,7 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F542737C277058020007FEA3 /* TestAlgo.swift in Sources */,
-				F5A8E023277033AC00A79A31 /* ContentView.swift in Sources */,
+				F5A8E023277033AC00A79A31 /* EuclideanView.swift in Sources */,
 				F5A8E021277033AC00A79A31 /* AlgoVizApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
